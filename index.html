@@ -3,27 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Assignment 1</title>
+    <title>Oge's DevOps Automation Showcase</title>
     <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --success: #22c55e;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
-        }
-        h1 {
-            color: #333;
+            min-height: 100vh;
             padding: 20px;
-            border-bottom: 2px solid #007bff;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        /* Live Pulsing Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--success);
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            background: #334155;
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #475569;
+            transition: transform 0.2s;
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #334155;
+            margin: 30px 0;
+        }
+
+        footer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
 
-    <h1>My name is Oge</h1>
-    <h1>My Automation is in action!</h1>
+    <div class="container">
+        <!-- Live Automation Indicator -->
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            CI/CD PIPELINE ACTIVE
+        </div>
+
+        <h1>Hey, I'm Oge!</h1>
+        <p>Welcome to my cloud deployment sandbox. This entire landing page was automatically pulled, processed, and deployed directly to AWS infrastructure using a customized Git automation workflow.</p>
+        
+        <hr>
+        
+        <h3 style="color: var(--text-main); margin-bottom: 15px; font-weight: 600;">Deployment Ecosystem</h3>
+        <div class="tech-stack">
+            <div class="tech-badge">🌐 AWS EC2</div>
+            <div class="tech-badge">🚀 GitHub Actions</div>
+            <div class="tech-badge">🛠️ Linux / Ubuntu</div>
+            <div class="tech-badge">🔒 SSH Authentication</div>
+        </div>
+        
+        <hr>
+        
+        <footer>
+            Built with efficiency • Managed via code pushes
+        </footer>
+    </div>
+
 </body>
 </html>
